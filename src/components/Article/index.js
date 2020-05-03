@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 
-// Components
 import ArticleDate from "./articleDate";
 import ArticleImage from "./articleImage";
 import ArticlePreamble from "./articlePreamble";

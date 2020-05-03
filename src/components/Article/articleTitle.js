@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const articleTitle = ({ title }) => <h4 className="article-title">{title}</h4>;
 

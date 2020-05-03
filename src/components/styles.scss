@@ -54,9 +54,6 @@ header {
       &--first {
         top: -18px;
       }
-      &--second {
-        //   top: -18px;
-      }
       &--third {
         bottom: -18px;
       }
@@ -133,20 +130,20 @@ body {
     }
 
     .checkboxes {
-        display: flex;
+      display: flex;
 
-        @media (min-width: $breakpoint-tablet) {
-            flex-direction: column;
-          }
+      @media (min-width: $breakpoint-tablet) {
+        flex-direction: column;
+      }
 
       .form-group {
         display: block;
         padding-right: 1rem;
 
         @media (min-width: $breakpoint-tablet) {
-            padding-right: 0;
-            padding-bottom: 1rem;
-          }
+          padding-right: 0;
+          padding-bottom: 1rem;
+        }
       }
 
       .form-group input {
@@ -252,7 +249,7 @@ body {
 
           .article-date {
             text-transform: capitalize;
-            font-size: .9rem;
+            font-size: 0.9rem;
           }
 
           .article-title {
