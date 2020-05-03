@@ -1,7 +1,4 @@
 import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
-
-// Components
 import Articles from "./Article/index";
 
 import "./styles.scss";
@@ -21,8 +18,7 @@ class App extends Component {
     };
   }
 
-  // todo add support for errors
-  getApiData(name, endpoint) {
+  getApiData(endpoint) {
     fetch(`http://127.0.0.1:6010/${endpoint}`)
       .then((response) => {
         if (response.ok) {
@@ -111,8 +107,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getApiData("sports", "articles/sports");
-    this.getApiData("fashion", "articles/fashion");
+    this.getApiData("articles/sports");
+    this.getApiData("articles/fashion");
   }
 
   render() {
