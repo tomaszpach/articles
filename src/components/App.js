@@ -1,11 +1,19 @@
+// Description for those who is going to review that.
+// What I would like to change and/or improve:
+// Api call/fetch - create better error handling
+// Tests - add few more examples that does more than checks snapshots
+// Split components - components Header, Sorting and Data Source could be splitted
+// Double check styles and components - check for consistency
+// React classnames - maybe add classnames and use it to manage states
+
 import React, { Component, Fragment } from "react";
 import Articles from "./Article/index";
 
 import "./styles.scss";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isLoading: true,
@@ -24,11 +32,10 @@ class App extends Component {
         if (response.ok) {
           return response.json();
         } else if (response.status === 500) {
-          this.setState({
-            errors: response.status,
-          });
+          this.setState({ errors: response.status });
           throw Error(`Error: ${response.status} - ${response.statusText}`);
         } else if (response.status === 404) {
+          this.setState({ errors: response.status });
           throw Error(`Error: ${response.status} - ${response.statusText}`);
         }
       })
@@ -38,7 +45,7 @@ class App extends Component {
         });
       })
       .catch((error) => {
-        console.warn("catch error", error);
+        console.warn("Error occured", error);
       })
       .finally(() => {
         this.setState({ isLoading: false });
@@ -118,21 +125,18 @@ class App extends Component {
           <div>Logo</div>
           <div>Main page</div>
           <button className="header-menu" type="button">
-            <span className="button-row button-row--first"></span>
-            <span className="button-row button-row--second"></span>
-            <span className="button-row button-row--third"></span>
+            <span className="button-row button-row--first" />
+            <span className="button-row button-row--second" />
+            <span className="button-row button-row--third" />
           </button>
         </header>
         <div className="sorting">
           <h4 className="sort-by">Sort by date</h4>
-          <span
-            onClick={() => this.sortArticles("asc")}
-            className="sort-asc"
-          ></span>
+          <span onClick={() => this.sortArticles("asc")} className="sort-asc" />
           <span
             onClick={() => this.sortArticles("desc")}
             className="sort-desc"
-          ></span>
+          />
         </div>
 
         <div className="data-source">
@@ -146,7 +150,7 @@ class App extends Component {
                   checked={this.state.categorySelected.fashion}
                   onChange={() => this.changeCategory("fashion")}
                 />
-                <label for="fashion">Fashion</label>
+                <label htmlFor="fashion">Fashion</label>
               </div>
               <div className="form-group">
                 <input
@@ -155,12 +159,12 @@ class App extends Component {
                   checked={this.state.categorySelected.sports}
                   onChange={() => this.changeCategory("sports")}
                 />
-                <label for="sports">Sports</label>
+                <label htmlFor="sports">Sports</label>
               </div>
             </div>
           </form>
         </div>
-        <div className={`articles ${this.state.isLoading ? 'loading' : ''}`}>
+        <div className={`articles ${this.state.isLoading ? "loading" : ""}`}>
           {this.state.isLoading ? (
             <div className="loader"></div>
           ) : this.state.errors ? (
