@@ -164,9 +164,9 @@ class App extends Component {
             </div>
           </form>
         </div>
-        <div className="articles">
+        <div className={`articles ${this.state.isLoading ? 'loading' : ''}`}>
           {this.state.isLoading ? (
-            "loading"
+            <div className="loader"></div>
           ) : this.state.errors ? (
             "Something wen't wrong. Please refresh the page"
           ) : (
