@@ -9,6 +9,7 @@
     "test:coverage": "jest --coverage --colors",
     "dev": "webpack-dev-server",
     "start": "webpack-dev-server --open --mode development",
+    "startServer": "webpack-dev-server --open --mode development & node server.js",
     "build": "webpack --mode production",
     "server": "node server.js"
   },
