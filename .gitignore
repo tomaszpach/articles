@@ -1,0 +1,7 @@
+.DS_Store
+node_modules
+dist
+package-lock.json
+ASSIGNMENT.md
+screen-bigger.png
+screen-small.png

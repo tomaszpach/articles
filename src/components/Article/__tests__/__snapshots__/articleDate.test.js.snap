@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleDate should correctly render ArticleDate component 1`] = `
+<span
+  className="article-date"
+>
+  5. februar 2019
+</span>
+`;

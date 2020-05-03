@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticlePreamble should correctly render ArticlePreamble component 1`] = `
+<p>
+  lorem ipsum dolor sit amet
+</p>
+`;
